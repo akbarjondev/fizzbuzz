@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+
+	<style>
+		.container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+		#result {
+			margin-top: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h2 class="heading">
+			FizzBuzz
+		</h2>
+
+		<form class="form" method="GET" action="https://echo.htmlacademy.ru">
+			<input class="number" aria-label="Son kiriting" type="number" required id="number" placeholder="Raqam">
+			<button class="button" type="submit">Natijani ko'rsat</button>
+		</form>
+
+		<div id="result"></div>
+	</div>
+
+	<script>
+		var elForm = document.querySelector('.form');
+		var elResult = document.querySelector('#result');
+		var elNumberInput = elForm.querySelector('.number');
+
+		elForm.addEventListener('submit', function(evt) {
+			evt.preventDefault();
+
+			var number = parseFloat(elNumberInput.value, 10);
+			if(number%5 === 0 && number%3 === 0) {
+				elResult.textContent = 'FizzBuzz';
+			} else if(number%3 === 0) {
+				elResult.textContent = 'Buzz';
+			} else if(number%5 === 0) {
+				elResult.textContent = 'Fizz';
+			} else {
+				elResult.textContent = number;
+			}
+		});
+	</script>
+</body>
+</html>
